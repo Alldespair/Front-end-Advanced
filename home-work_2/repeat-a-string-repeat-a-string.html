@@ -1,0 +1,27 @@
+<!-- Repeat a given string str (first argument) for num times (second argument).
+Return an empty string if num is not a positive number. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function repeatStringNumTimes(str, num) {
+    var myStr = "";
+    while(num > 0) {
+      myStr += str;
+      num -= 1;
+    }
+    return myStr;
+  }
+
+  repeatStringNumTimes("abc", 3);
+</script>
+</body>
+</html>
+
