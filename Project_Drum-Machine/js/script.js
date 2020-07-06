@@ -46,6 +46,7 @@ let totalSteps = 15
 
 let currentPlay;
 let playing;
+let playingStatus;
 
 // 5. applied addEventListener and mouseevents to buttons and created functions;
 
@@ -100,7 +101,6 @@ loopPanel.addEventListener('click', function(e) {
 
 function calculateLoopInterval() {
   loopInterval = minute / BPM / loopSteps * 1000;
-  console.log(minute +' / ' + BPM + ' / ' + loopSteps + ' * ' + 1000 +'=' + loopInterval);
 };
 
 calculateLoopInterval();
@@ -108,10 +108,12 @@ calculateLoopInterval();
 // 9. functions to play and stop sample
 
 function stopAudio() {
+  playingStatus = false;
   clearInterval(playing);
 };
 
 function startAudio() {
+  playingStatus = true;
   playing = window.setInterval(function() {
     playLoop();
     }, loopInterval);
@@ -166,8 +168,10 @@ function addBPM() {
     currentBPM.value++;
     BPM = currentBPM.value;
     calculateLoopInterval();
-    stopAudio();
-    startAudio()
+    if(playingStatus) {
+      stopAudio();
+      startAudio()  
+    }
   }
 };
 
@@ -176,8 +180,10 @@ function subtractBTN() {
     currentBPM.value--;
     BPM = currentBPM.value;
     calculateLoopInterval();
-    stopAudio();
-    startAudio()
+    if(playingStatus) {
+      stopAudio();
+      startAudio()  
+    }
   }
 };
 
