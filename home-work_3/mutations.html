@@ -1,0 +1,31 @@
+<!-- Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+For example, ["hello", "Hello"], should return true because all of the letters in the second string are present in the first, ignoring case.
+
+The arguments ["hello", "hey"] should return false because the string "hello" does not contain a "y".
+
+Lastly, ["Alien", "line"], should return true because all of the letters in "line" are present in "Alien". -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function mutation(arr) {
+      var firstArg = arr[1].toLowerCase();
+      var secondArg = arr[0].toLowerCase();
+      var i, size = firstArg.length;
+      for (var i = 0; i < size; i += 1) {
+        if (secondArg.indexOf(firstArg[i]) < 0) return false;
+      };
+    return true;
+    };
+  mutation(["hello", "hey"]);
+  </script>
+</body>
+</html>

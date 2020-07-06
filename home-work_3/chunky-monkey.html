@@ -1,0 +1,25 @@
+<!-- Write a function that splits an array (first argument) into groups the length of size (second argument) and returns
+them as a two-dimensional array. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function chunkArrayInGroups(arr, size) {
+      var newArr = [], i, arrSize = arr.length;
+      for (i = 0; i < arrSize; i += size) {
+        newArr.push(arr.slice(i, i + size));
+      }
+      return newArr;
+    };
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+  </script>
+</body>
+</html>
