@@ -45,6 +45,8 @@ let currentStep = 0;
 let totalSteps = 15
 
 let currentPlay;
+let prePlayingElem;
+let prePlayingSound;
 let playing;
 let playingStatus;
 
@@ -87,9 +89,13 @@ loopPanel.addEventListener('click', function(e) {
     currentPanelElem = e.target;
     panelRow = e.target.dataset.row;
     panelCol = e.target.dataset.col;
+    prePlayingElem = e.target.parentNode.parentNode.querySelector(`div`).dataset.key;
     if(!sampleBox[panelRow][panelCol]) {
       sampleBox[panelRow][panelCol] = true;
       currentPanelElem.style.backgroundColor = "#ffc600";
+      prePlayingSound = document.querySelector(`audio[data-key="${prePlayingElem}"]`);
+      prePlayingSound.currentTime = 0;
+      prePlayingSound.play();
     } else {
       sampleBox[panelRow][panelCol] = false;
       currentPanelElem.style.backgroundColor = "#111111";
